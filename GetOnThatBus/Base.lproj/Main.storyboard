@@ -32,10 +32,10 @@
                                 <exclude reference="cHJ-Bb-KMw"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="MbB-Dq-DMl"/>
                                 <exclude reference="JSe-gz-qNe"/>
                                 <exclude reference="M5m-WQ-fge"/>
                                 <exclude reference="fJf-UH-C5O"/>
-                                <exclude reference="MbB-Dq-DMl"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -43,10 +43,10 @@
                                 <include reference="cHJ-Bb-KMw"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="MbB-Dq-DMl"/>
                                 <include reference="JSe-gz-qNe"/>
                                 <include reference="M5m-WQ-fge"/>
                                 <include reference="fJf-UH-C5O"/>
-                                <include reference="MbB-Dq-DMl"/>
                             </mask>
                         </variation>
                     </view>

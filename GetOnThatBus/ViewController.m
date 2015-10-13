@@ -54,10 +54,21 @@
         double longitude = [busStop[@"longitude"] doubleValue];
         annotation.coordinate = CLLocationCoordinate2DMake(lat, longitude);
         annotation.title = busStop[@"cta_stop_name"];
+        annotation.subtitle = [NSString stringWithFormat:@"Routes: %@",busStop[@"routes"]];
         [self.mapView addAnnotation:annotation];
     }
 
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView *pin = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+
+    pin.canShowCallout = YES;
+    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
+    return pin;
+}
+
 
 @end
 
