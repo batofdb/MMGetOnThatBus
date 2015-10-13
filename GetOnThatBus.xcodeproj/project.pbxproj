@@ -105,9 +105,9 @@
 		43E3DB081BCDA37400498331 /* GetOnThatBus */ = {
 			isa = PBXGroup;
 			children = (
+				43E3DB121BCDA37400498331 /* Main.storyboard */,
 				43E3DB0F1BCDA37400498331 /* ViewController.h */,
 				43E3DB101BCDA37400498331 /* ViewController.m */,
-				43E3DB121BCDA37400498331 /* Main.storyboard */,
 				43E3DB151BCDA37400498331 /* Assets.xcassets */,
 				43E3DB171BCDA37400498331 /* LaunchScreen.storyboard */,
 				43E3DB091BCDA37400498331 /* Supporting Files */,
