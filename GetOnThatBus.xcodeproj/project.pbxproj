@@ -16,6 +16,8 @@
 		43E3DB241BCDA37400498331 /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DB231BCDA37400498331 /* GetOnThatBusTests.m */; };
 		43E3DB2F1BCDA37400498331 /* GetOnThatBusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DB2E1BCDA37400498331 /* GetOnThatBusUITests.m */; };
 		43E3DB3D1BCDA38800498331 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E3DB3C1BCDA38800498331 /* MapKit.framework */; };
+		43E3DB401BCDB90A00498331 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DB3F1BCDB90A00498331 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		43FC42BB1BCDC516001DE1C7 /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC42BA1BCDC516001DE1C7 /* BusStopAnnotation.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		43E3DB2E1BCDA37400498331 /* GetOnThatBusUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusUITests.m; sourceTree = "<group>"; };
 		43E3DB301BCDA37400498331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43E3DB3C1BCDA38800498331 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		43E3DB3E1BCDB90A00498331 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		43E3DB3F1BCDB90A00498331 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		43FC42B91BCDC516001DE1C7 /* BusStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopAnnotation.h; sourceTree = "<group>"; };
+		43FC42BA1BCDC516001DE1C7 /* BusStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,10 @@
 				43E3DB121BCDA37400498331 /* Main.storyboard */,
 				43E3DB0F1BCDA37400498331 /* ViewController.h */,
 				43E3DB101BCDA37400498331 /* ViewController.m */,
+				43E3DB3E1BCDB90A00498331 /* DetailViewController.h */,
+				43E3DB3F1BCDB90A00498331 /* DetailViewController.m */,
+				43FC42B91BCDC516001DE1C7 /* BusStopAnnotation.h */,
+				43FC42BA1BCDC516001DE1C7 /* BusStopAnnotation.m */,
 				43E3DB151BCDA37400498331 /* Assets.xcassets */,
 				43E3DB171BCDA37400498331 /* LaunchScreen.storyboard */,
 				43E3DB091BCDA37400498331 /* Supporting Files */,
@@ -275,8 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E3DB111BCDA37400498331 /* ViewController.m in Sources */,
+				43FC42BB1BCDC516001DE1C7 /* BusStopAnnotation.m in Sources */,
 				43E3DB0E1BCDA37400498331 /* AppDelegate.m in Sources */,
 				43E3DB0B1BCDA37400498331 /* main.m in Sources */,
+				43E3DB401BCDB90A00498331 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +512,7 @@
 				43E3DB351BCDA37400498331 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43E3DB361BCDA37400498331 /* Build configuration list for PBXNativeTarget "GetOnThatBusTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +521,7 @@
 				43E3DB381BCDA37400498331 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43E3DB391BCDA37400498331 /* Build configuration list for PBXNativeTarget "GetOnThatBusUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +530,7 @@
 				43E3DB3B1BCDA37400498331 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
