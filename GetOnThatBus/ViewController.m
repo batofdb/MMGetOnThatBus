@@ -29,6 +29,8 @@
     [self.locationManager startUpdatingLocation];
     self.mapView.showsUserLocation = YES;
 
+    [self showChitown];
+
     NSURL *url = [NSURL URLWithString:@"https://s3.amazonaws.com/mmios8week/bus.json"];
 
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -38,7 +40,9 @@
             self.row = self.results[@"row"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self populatePins];
+
             });
+
         }
     }];
 
@@ -69,6 +73,17 @@
     return pin;
 }
 
+
+- (void)showChitown {
+    MKCoordinateRegion region;
+    region.center.latitude = 41.8369;
+    region.center.longitude = -87.6847;
+
+    region.span.latitudeDelta = 0.1;
+    region.span.longitudeDelta = 0.1;
+
+    [self.mapView setRegion:region animated:YES];
+}
 
 @end
 
