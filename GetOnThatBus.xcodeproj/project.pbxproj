@@ -15,6 +15,7 @@
 		43E3DB191BCDA37400498331 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E3DB171BCDA37400498331 /* LaunchScreen.storyboard */; };
 		43E3DB241BCDA37400498331 /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DB231BCDA37400498331 /* GetOnThatBusTests.m */; };
 		43E3DB2F1BCDA37400498331 /* GetOnThatBusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DB2E1BCDA37400498331 /* GetOnThatBusUITests.m */; };
+		43E3DB3D1BCDA38800498331 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E3DB3C1BCDA38800498331 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		43E3DB2A1BCDA37400498331 /* GetOnThatBusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetOnThatBusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E3DB2E1BCDA37400498331 /* GetOnThatBusUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusUITests.m; sourceTree = "<group>"; };
 		43E3DB301BCDA37400498331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43E3DB3C1BCDA38800498331 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E3DB3D1BCDA38800498331 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 		43E3DAFD1BCDA37400498331 = {
 			isa = PBXGroup;
 			children = (
+				43E3DB3C1BCDA38800498331 /* MapKit.framework */,
 				43E3DB081BCDA37400498331 /* GetOnThatBus */,
 				43E3DB221BCDA37400498331 /* GetOnThatBusTests */,
 				43E3DB2D1BCDA37400498331 /* GetOnThatBusUITests */,
@@ -101,14 +105,11 @@
 		43E3DB081BCDA37400498331 /* GetOnThatBus */ = {
 			isa = PBXGroup;
 			children = (
-				43E3DB0C1BCDA37400498331 /* AppDelegate.h */,
-				43E3DB0D1BCDA37400498331 /* AppDelegate.m */,
 				43E3DB0F1BCDA37400498331 /* ViewController.h */,
 				43E3DB101BCDA37400498331 /* ViewController.m */,
 				43E3DB121BCDA37400498331 /* Main.storyboard */,
 				43E3DB151BCDA37400498331 /* Assets.xcassets */,
 				43E3DB171BCDA37400498331 /* LaunchScreen.storyboard */,
-				43E3DB1A1BCDA37400498331 /* Info.plist */,
 				43E3DB091BCDA37400498331 /* Supporting Files */,
 			);
 			path = GetOnThatBus;
@@ -117,6 +118,9 @@
 		43E3DB091BCDA37400498331 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				43E3DB1A1BCDA37400498331 /* Info.plist */,
+				43E3DB0C1BCDA37400498331 /* AppDelegate.h */,
+				43E3DB0D1BCDA37400498331 /* AppDelegate.m */,
 				43E3DB0A1BCDA37400498331 /* main.m */,
 			);
 			name = "Supporting Files";
