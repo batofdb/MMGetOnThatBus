@@ -97,12 +97,12 @@
 
     if (annotation.interModalTransfers) {
         if ([annotation.interModalTransfers isEqualToString:@"Metra"]) {
-            pin.image = [UIImage imageNamed:@"monster-one"];
+            pin.image = [UIImage imageNamed:@"metra"];
         } else {
-            pin.image = [UIImage imageNamed:@"monster-three"];
+            pin.image = [UIImage imageNamed:@"pace"];
         }
     } else {
-        pin.image = [UIImage imageNamed:@"mobilemakers"];
+        pin.image = [UIImage imageNamed:@"pin"];
     }
 
     pin.canShowCallout = YES;
@@ -140,7 +140,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  [self.row count];
+    return  [self.annotationArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -150,16 +150,34 @@
 
     cell.textLabel.text = busStop.busStopName;
 
+    if (busStop.interModalTransfers) {
+        if ([busStop.interModalTransfers isEqualToString:@"Metra"]) {
+            cell.imageView.image = [UIImage imageNamed:@"metra"];
+        } else {
+            cell.imageView.image = [UIImage imageNamed:@"pace"];
+        }
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"pin"];
+    }
 
     return cell;
 }
 - (IBAction)onMapButtonPressed:(UIButton *)sender {
     self.isTableViewActive = NO;
     [self toggleTableView];
+
+    UIColor *buttonColor = self.mapButton.backgroundColor;
+    self.mapButton.backgroundColor = self.listButton.backgroundColor;
+    self.listButton.backgroundColor = buttonColor;
 }
 - (IBAction)onListButtonPressed:(UIButton *)sender {
     self.isTableViewActive = YES;
     [self toggleTableView];
+
+    UIColor *buttonColor = self.mapButton.backgroundColor;
+    self.mapButton.backgroundColor = self.listButton.backgroundColor;
+    self.listButton.backgroundColor = buttonColor;
+
 }
 
 - (void)toggleTableView {
