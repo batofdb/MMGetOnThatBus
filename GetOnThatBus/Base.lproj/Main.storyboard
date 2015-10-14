@@ -19,23 +19,98 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cHJ-Bb-KMw">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jip-L4-pCK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="503"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="WLF-cT-fW7">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WLF-cT-fW7" id="WO3-jx-ICU">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fWd-23-OPm" kind="show" identifier="TableSegue" id="GEk-vo-YBW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Chy-VM-X6l"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Qkm-oF-tNm"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPT-Jx-Yrv">
+                                <rect key="frame" x="0.0" y="503" width="600" height="97"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aY2-MT-Uul">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baa-lq-5uC">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="97"/>
+                                                <color key="backgroundColor" red="0.2470588235" green="0.31764705879999999" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Map">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onMapButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bZm-bn-VLu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6E-k4-jte">
+                                                <rect key="frame" x="300" y="0.0" width="300" height="97"/>
+                                                <state key="normal" title="List">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onListButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sqg-jR-v5i"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="F6E-k4-jte" firstAttribute="leading" secondItem="baa-lq-5uC" secondAttribute="trailing" id="17t-wC-ndK"/>
+                                            <constraint firstItem="F6E-k4-jte" firstAttribute="leading" secondItem="baa-lq-5uC" secondAttribute="trailing" id="FrK-xI-Gga"/>
+                                            <constraint firstAttribute="trailing" secondItem="F6E-k4-jte" secondAttribute="trailing" id="HeK-HO-eQR"/>
+                                            <constraint firstAttribute="bottom" secondItem="baa-lq-5uC" secondAttribute="bottom" id="SxQ-Pe-6yA"/>
+                                            <constraint firstAttribute="bottom" secondItem="F6E-k4-jte" secondAttribute="bottom" id="dlv-jB-lxp"/>
+                                            <constraint firstItem="baa-lq-5uC" firstAttribute="top" secondItem="aY2-MT-Uul" secondAttribute="top" id="onF-9s-2H3"/>
+                                            <constraint firstItem="F6E-k4-jte" firstAttribute="top" secondItem="aY2-MT-Uul" secondAttribute="top" id="rwG-lz-gbX"/>
+                                            <constraint firstItem="baa-lq-5uC" firstAttribute="leading" secondItem="aY2-MT-Uul" secondAttribute="leading" id="wnj-AC-fz2"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.8980392157" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="aY2-MT-Uul" firstAttribute="leading" secondItem="aPT-Jx-Yrv" secondAttribute="leading" id="1h2-qb-tZA"/>
+                                    <constraint firstAttribute="trailing" secondItem="aY2-MT-Uul" secondAttribute="trailing" id="7Xo-aI-i0H"/>
+                                    <constraint firstAttribute="height" constant="97" id="U6V-zD-9gY"/>
+                                    <constraint firstItem="aY2-MT-Uul" firstAttribute="top" secondItem="aPT-Jx-Yrv" secondAttribute="top" id="UIX-Ou-wHL"/>
+                                    <constraint firstAttribute="bottom" secondItem="aY2-MT-Uul" secondAttribute="bottom" id="wWZ-2p-6qp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Jip-L4-pCK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3U1-Cr-oiR"/>
+                            <constraint firstItem="Jip-L4-pCK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="68h-Mq-Zpk"/>
+                            <constraint firstItem="aPT-Jx-Yrv" firstAttribute="top" secondItem="Jip-L4-pCK" secondAttribute="bottom" id="EiK-AH-L7z"/>
+                            <constraint firstAttribute="trailing" secondItem="Jip-L4-pCK" secondAttribute="trailing" id="G6s-kJ-nUr"/>
                             <constraint firstAttribute="trailing" secondItem="cHJ-Bb-KMw" secondAttribute="trailing" id="JSe-gz-qNe"/>
                             <constraint firstItem="cHJ-Bb-KMw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="M5m-WQ-fge"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cHJ-Bb-KMw" secondAttribute="bottom" id="MbB-Dq-DMl"/>
+                            <constraint firstItem="aPT-Jx-Yrv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QEF-Z1-bi6"/>
                             <constraint firstItem="cHJ-Bb-KMw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fJf-UH-C5O"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jip-L4-pCK" secondAttribute="bottom" constant="97" id="p4J-71-cFS"/>
+                            <constraint firstAttribute="trailing" secondItem="aPT-Jx-Yrv" secondAttribute="trailing" id="y6S-E9-Tbe"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="cHJ-Bb-KMw"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="MbB-Dq-DMl"/>
                                 <exclude reference="JSe-gz-qNe"/>
                                 <exclude reference="M5m-WQ-fge"/>
                                 <exclude reference="fJf-UH-C5O"/>
+                                <exclude reference="MbB-Dq-DMl"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -43,16 +118,19 @@
                                 <include reference="cHJ-Bb-KMw"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="MbB-Dq-DMl"/>
                                 <include reference="JSe-gz-qNe"/>
                                 <include reference="M5m-WQ-fge"/>
                                 <include reference="fJf-UH-C5O"/>
+                                <include reference="MbB-Dq-DMl"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Chicago Transit" id="g78-iI-35S"/>
                     <connections>
+                        <outlet property="listButton" destination="F6E-k4-jte" id="wCT-7j-N3z"/>
+                        <outlet property="mapButton" destination="baa-lq-5uC" id="W57-Gl-OKt"/>
                         <outlet property="mapView" destination="cHJ-Bb-KMw" id="7j0-zf-UbG"/>
+                        <outlet property="tableView" destination="Jip-L4-pCK" id="xzW-Ky-Ojt"/>
                         <segue destination="fWd-23-OPm" kind="show" identifier="DetailSegue" id="6Zc-hQ-d7e"/>
                     </connections>
                 </viewController>
@@ -145,4 +223,7 @@
             <point key="canvasLocation" x="454.5" y="387"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GEk-vo-YBW"/>
+    </inferredMetricsTieBreakers>
 </document>

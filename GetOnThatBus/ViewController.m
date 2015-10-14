@@ -11,12 +11,17 @@
 #import "BusStopAnnotation.h"
 #import <MapKit/MapKit.h>
 
-@interface ViewController () <MKMapViewDelegate>
+@interface ViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) NSDictionary *results;
 @property (nonatomic) NSArray *row;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
+@property (weak, nonatomic) IBOutlet UIButton *listButton;
+@property NSMutableArray *annotationArray;
+@property BOOL isTableViewActive;
 
 @end
 
@@ -25,8 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.mapView.delegate = self;
+    self.annotationArray = [[NSMutableArray alloc] init];
 
+    self.mapView.delegate = self;
+    self.isTableViewActive = NO;
     [self showChitown];
 
     NSURL *url = [NSURL URLWithString:@"https://s3.amazonaws.com/mmios8week/bus.json"];
@@ -38,13 +45,14 @@
             self.row = self.results[@"row"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self populatePins];
+                [self.tableView reloadData];
             });
 
         }
     }];
 
     [task resume];
-    
+    [self toggleTableView];
 }
 
 - (void)populatePins {
@@ -66,6 +74,7 @@
             annotation.interModalTransfers = busStop[@"inter_modal"];
         }
 
+        [self.annotationArray addObject:annotation];
         [self.mapView addAnnotation:annotation];
     }
 
@@ -116,10 +125,49 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DetailViewController *vc = segue.destinationViewController;
-    vc.annotation = sender;
+
+    if ([segue.identifier isEqualToString:@"TableSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        BusStopAnnotation *busStop = [self.annotationArray objectAtIndex:indexPath.row];
+        DetailViewController *vc = segue.destinationViewController;
+        vc.annotation = busStop;
+
+    } else {
+        DetailViewController *vc = segue.destinationViewController;
+        vc.annotation = sender;
+    }
+
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return  [self.row count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+
+    BusStopAnnotation *busStop = [self.annotationArray objectAtIndex:indexPath.row];
+
+    cell.textLabel.text = busStop.busStopName;
+
+
+    return cell;
+}
+- (IBAction)onMapButtonPressed:(UIButton *)sender {
+    self.isTableViewActive = NO;
+    [self toggleTableView];
+}
+- (IBAction)onListButtonPressed:(UIButton *)sender {
+    self.isTableViewActive = YES;
+    [self toggleTableView];
+}
+
+- (void)toggleTableView {
+    if(self.isTableViewActive)
+        self.tableView.hidden = NO;
+    else
+        self.tableView.hidden = YES;
+}
 
 @end
 
